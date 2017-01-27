@@ -23,22 +23,20 @@ public class RolePermissionInterceptor implements HandlerInterceptor {
         // get the annotation
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         RolePermissions permissionAnnotation = handlerMethod.getMethod().getAnnotation(RolePermissions.class);
-        if (permissionAnnotation != null) {        // if present,
-            // return if any roles in annotation match any roles in user.roles
-            JwtSubject subject = (JwtSubject)request.getAttribute(AuthUtils.JWT_TOKEN_NAME);
-
-            User user = userRepository.findOne(subject.getUserId());
-
-            for (RoleType roleType : permissionAnnotation.allowedRoles()) {
-                if (AuthUtils.userHasRole(user, roleType)) {
-                    return true;
-                }
-            }
-            throw new IllegalAccessException();
-        }
-        else {        // else return true since no perms are required
+        if (permissionAnnotation == null) {        // if present,
             return true;
         }
+
+        // return if any roles in annotation match any roles in user.roles
+        User user = AuthUtils.getLoggedInUser(request);
+
+        for (RoleType roleType : permissionAnnotation.allowedRoles()) {
+            if (AuthUtils.userHasRole(user, roleType)) {
+                return true;
+            }
+        }
+        // TODO throw a 401 unauthorized here instead?
+        throw new ForbiddenAccessException();
     }
 
     @Override

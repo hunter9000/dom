@@ -34,14 +34,14 @@ public class JWTInterceptor implements HandlerInterceptor {
 
         // validate the token here
         if (jwtToken == null || jwtToken.isEmpty()) {
-            throw new IllegalAccessException();
+            throw new ForbiddenAccessException();
         }
         String jwsSubject = null;
         try {
             jwsSubject = Jwts.parser().setSigningKey(securityManager.getSecurityKey()).parseClaimsJws(jwtToken).getBody().getSubject();
         }
         catch (MalformedJwtException mje) {
-            throw new IllegalAccessException();
+            throw new ForbiddenAccessException();
         }
         System.out.println("subject: " + jwsSubject);
 
@@ -49,10 +49,16 @@ public class JWTInterceptor implements HandlerInterceptor {
         JwtSubject subject = objectMapper.readValue(jwsSubject, JwtSubject.class);
 
         if (!subject.isValid()) {
-            throw new IllegalAccessException();
+            throw new ForbiddenAccessException();
+        }
+
+        User user = userRepository.findOne(subject.getUserId());
+        if (user == null) {
+            throw new ForbiddenAccessException();
         }
 
         request.setAttribute(AuthUtils.JWT_TOKEN_NAME, subject);
+        request.setAttribute(AuthUtils.LOGGED_IN_USER, user);
         return true;
     }
 
