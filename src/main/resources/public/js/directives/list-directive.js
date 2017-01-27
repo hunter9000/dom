@@ -1,5 +1,5 @@
 
-sampleApp.directive('list', function($compile, $interpolate) {
+savageRiftsApp.directive('list', function($compile, $interpolate, $log) {
     return {
         restrict: 'E',
         scope: {
@@ -14,13 +14,13 @@ sampleApp.directive('list', function($compile, $interpolate) {
                     </div>',
         link: function(scope, element, attrs) {
             scope.click = function(ele) {
-                console.log('click ' + ele);
+//                $log.debug('click ' + ele);
                 scope.clickCallback({recipe: ele});
             }
         }
     }
 });
-sampleApp.directive('element', function($compile, $interpolate, TemplateService) {
+savageRiftsApp.directive('element', function($compile, $interpolate, TemplateService) {
     return {
         restrict: 'E',
         scope: {

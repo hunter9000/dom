@@ -1,5 +1,5 @@
 
-sampleApp.directive('pfCollapseSection', function() {
+savageRiftsApp.directive('pfCollapseSection', function() {
 	return {
 		template:
 			'<div class="panel panel-default" id="panel2"> \
@@ -18,13 +18,11 @@ sampleApp.directive('pfCollapseSection', function() {
             return $scope;
 		},
 		link: function postLink(scope, element, attrs) {
-//		  console.log('collapse directive');
-//		  console.log(scope);
 		}
 	}
 });
 
-sampleApp.directive('pfCollapseSectionHeader', function() {
+savageRiftsApp.directive('pfCollapseSectionHeader', function() {
 	return {
 		template:
 			'<div class="panel-heading"> \
@@ -40,14 +38,12 @@ sampleApp.directive('pfCollapseSectionHeader', function() {
 		replace: true,
 		require: '^pfCollapseSection',
 		link: function postLink(scope, iElement, iAttrs, firstDirectiveController) {
-//		  console.log('header directive');
-//		  console.log(firstDirectiveController);
 		  scope.id = firstDirectiveController.identifier;
 		}
 	}
 });
 
-sampleApp.directive('pfCollapseSectionBody', function() {
+savageRiftsApp.directive('pfCollapseSectionBody', function() {
 	return {
 		template:
 			'<div id="{{id}}" ng-class="{in: !initialCollapsed, \'panel-collapse\': true, collapse: true}" > \
@@ -61,8 +57,6 @@ sampleApp.directive('pfCollapseSectionBody', function() {
 		replace: true,
 		require: '^pfCollapseSection',
 		link: function postLink(scope, iElement, iAttrs, firstDirectiveController) {
-//		  console.log('body directive');
-//		  console.log(firstDirectiveController);
 		  scope.id = firstDirectiveController.identifier;
           scope.initialCollapsed = firstDirectiveController.initialCollapsed;
 		}

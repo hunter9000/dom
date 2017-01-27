@@ -8,14 +8,9 @@ sampleApp.controller('loginController', function($scope, $location, $http, $wind
 
     // when submitting the add form, send the text to the node API
     $scope.login = function() {
-        $http.post('/api/authenticate/', $scope.formData)
-        .then(function successCallback(response) {
-            console.log(response);
+        APIService.authenticate($scope.formData, function(response) {
             $window.localStorage['jwtToken'] = response.data.response;
-            $location.path("/charselect");
-        }, function errorCallback(response) {
-            console.log('Error: ' + response);
-            $scope.message = 'invalid login - error returned';
+            $location.path("/sheetselect");
         });
     };
 });

@@ -5,8 +5,8 @@
 
 <head>
   <!-- SCROLLS -->
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
   <link rel="stylesheet" href="css/style.css" />
 
@@ -30,19 +30,18 @@
   <script src="js/script.js"></script>
 
   <!-- factories/services -->
-  <script src="js/admin/admin-service.js"></script>
+  <script src="js/services/jwt-service.js"></script>
+  <script src="js/services/sheet-service.js"></script>
+  <script src="js/services/api-service.js"></script>
 
   <!-- directives -->
   <script src="bower_components/checklist-model/checklist-model.js"></script>
   <script src="js/directives/list-directive.js"></script>
-  <script src="js/directives/material-directive.js"></script>
-  <script src="js/directives/material-add-directive.js"></script>
   <script src="js/directives/user-info-directive.js"></script>
   <script src="js/directives/collapse-section-directive.js"></script>
 
   <!-- controllers -->
   <script src="js/admin/edit-user-controller.js"></script>
-  <script src="js/admin/material-controller.js"></script>
   <script src="js/admin/new-user-controller.js"></script>
   <script src="js/admin/users-controller.js"></script>
 
@@ -91,9 +90,6 @@
             </a></li>
             <li><a href="#/users" ng-show="isAdmin()"><span class="glyphicon glyphicon-user"></span>
               Users
-            </a></li>
-            <li><a href="#/materials" ng-show="isAdmin()">
-              Materials
             </a></li>
 
             <li role="separator" class="divider" ng-show="isAdmin()"></li>
