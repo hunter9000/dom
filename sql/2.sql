@@ -1,4 +1,4 @@
-USE mtg;
+USE <schema_name>;
 
 CREATE TABLE `sql_files` (
 	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@ COLLATE='utf8_general_ci' ENGINE=InnoDB;
 INSERT INTO role (role_name) VALUES ('PLAYER');
 INSERT INTO role (role_name) VALUES ('ADMIN');
 
-INSERT INTO user (username, password, email) VALUES ('hunter', '$2a$10$H4hkhpBYC32YXdyKRIGVDe.lV49DZm37nlygg1V/kUCv5MEmPp4Iu', 'hunter9000@gmail.com');
+INSERT INTO user (username, password, email) VALUES ('', '', '');
 
 INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO user_role (user_id, role_id) VALUES (1, 2);

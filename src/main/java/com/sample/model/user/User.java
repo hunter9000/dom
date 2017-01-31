@@ -1,4 +1,4 @@
-package mtg.model.user;
+package com.sample.model.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

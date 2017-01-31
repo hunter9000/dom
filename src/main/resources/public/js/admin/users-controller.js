@@ -1,5 +1,5 @@
 
-mtgApp.controller('usersController', function(APIService, $scope, $location) {
+savageRiftsApp.controller('usersController', function(APIService, $scope, $location) {
 
     $scope.users = [];
 

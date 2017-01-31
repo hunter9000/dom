@@ -1,8 +1,8 @@
 // create the module and name it scotchApp
-var mtgApp = angular.module('mtgApp', ['ngRoute', 'ui.bootstrap', 'checklist-model', 'ngMaterial']);
+var sampleApp = angular.module('sampleApp', ['ngRoute', 'ui.bootstrap', 'checklist-model', 'ngMaterial']);
 
 // configure our routes
-mtgApp.config(function($routeProvider) {
+sampleApp.config(function($routeProvider) {
     $routeProvider
         // route for the home page
         // main-controller.js

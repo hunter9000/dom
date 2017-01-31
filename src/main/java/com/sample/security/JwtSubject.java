@@ -1,9 +1,9 @@
-package mtg.security;
+package com.sample.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import mtg.model.user.RoleType;
+import com.sample.model.user.RoleType;
 
 import java.util.List;
 

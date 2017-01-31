@@ -1,6 +1,6 @@
-package mtg.interceptor;
+package com.sample.interceptor;
 
-import mtg.model.user.RoleType;
+import com.sample.model.user.RoleType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

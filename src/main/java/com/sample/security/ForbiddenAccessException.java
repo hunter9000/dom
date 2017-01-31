@@ -1,4 +1,4 @@
-package mtg.security;
+package savagerifts.security;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

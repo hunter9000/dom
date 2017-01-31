@@ -1,10 +1,10 @@
-package mtg.interceptor;
+package com.sample.interceptor;
 
-import mtg.model.user.RoleType;
-import mtg.model.user.User;
-import mtg.repository.UserRepository;
-import mtg.security.ForbiddenAccessException;
-import mtg.util.AuthUtils;
+import com.sample.model.user.RoleType;
+import com.sample.model.user.User;
+import com.sample.repository.UserRepository;
+import com.sample.security.JwtSubject;
+import com.sample.util.AuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;

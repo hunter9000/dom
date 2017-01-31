@@ -1,5 +1,5 @@
 
-mtgApp.directive('list', function($compile, $interpolate, $log) {
+savageRiftsApp.directive('list', function($compile, $interpolate, $log) {
     return {
         restrict: 'E',
         scope: {
@@ -20,7 +20,7 @@ mtgApp.directive('list', function($compile, $interpolate, $log) {
         }
     }
 });
-mtgApp.directive('element', function($compile, $interpolate, TemplateService) {
+savageRiftsApp.directive('element', function($compile, $interpolate, TemplateService) {
     return {
         restrict: 'E',
         scope: {

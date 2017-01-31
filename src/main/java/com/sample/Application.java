@@ -1,7 +1,7 @@
-package mtg;
+package com.sample;
 
-import mtg.interceptor.JWTInterceptor;
-import mtg.interceptor.RolePermissionInterceptor;
+import com.sample.interceptor.JWTInterceptor;
+import com.sample.interceptor.RolePermissionInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;

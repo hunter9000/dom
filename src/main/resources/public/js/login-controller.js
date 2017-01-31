@@ -1,6 +1,6 @@
 
 // create the controller and inject Angular's $scope
-mtgApp.controller('loginController', function($scope, $location, $http, $window) {
+sampleApp.controller('loginController', function($scope, $location, $http, $window) {
     // create a message to display in our view
     $scope.message = '';
 
