@@ -73,7 +73,11 @@
       <scope>test</scope>
     </dependency>
 
-
+    <dependency>
+        <groupId>io.magicthegathering</groupId>
+        <artifactId>javasdk</artifactId>
+        <version>0.0.3</version>
+    </dependency>
 
   </dependencies>
 
