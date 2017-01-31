@@ -1,4 +1,4 @@
-package com.sample.request;
+package mtg.request;
 
 public class AuthRequest {
     public String name;

@@ -1,5 +1,5 @@
 
-savageRiftsApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
+mtgApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
 
     $scope.user = {};
 

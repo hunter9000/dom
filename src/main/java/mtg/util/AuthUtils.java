@@ -1,10 +1,9 @@
-package com.sample.util;
+package mtg.util;
 
-import com.sample.model.user.Role;
-import com.sample.model.user.RoleType;
-import com.sample.model.user.User;
-import com.sample.security.JwtSubject;
-import org.springframework.beans.factory.annotation.Autowired;
+import mtg.model.user.Role;
+import mtg.model.user.RoleType;
+import mtg.model.user.User;
+import mtg.security.JwtSubject;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,7 +38,4 @@ public class AuthUtils {
         return ((User)request.getAttribute(LOGGED_IN_USER));
     }
 
-    public static Sheet getSheet(HttpServletRequest request) {
-        return ((Sheet)request.getAttribute(SHEET));
-    }
 }

@@ -1,5 +1,5 @@
 
-savageRiftsApp.controller('newUserController', function(APIService, $scope, $location) {
+mtgApp.controller('newUserController', function(APIService, $scope, $location) {
     $scope.user = {
         roles: []
     };       // user object to build and pass to server

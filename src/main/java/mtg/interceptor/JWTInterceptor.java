@@ -1,8 +1,11 @@
-package com.sample.interceptor;
+package mtg.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.security.JwtSubject;
-import com.sample.util.AuthUtils;
+import mtg.model.user.User;
+import mtg.repository.UserRepository;
+import mtg.security.ForbiddenAccessException;
+import mtg.security.JwtSubject;
+import mtg.util.AuthUtils;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +13,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import com.sample.security.SecurityManager;
+import mtg.security.SecurityManager;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class JWTInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private SecurityManager securityManager;

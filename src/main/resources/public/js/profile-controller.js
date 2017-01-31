@@ -1,5 +1,5 @@
 
-savageRiftsApp.controller('profileController', function(APIService, $scope){
+mtgApp.controller('profileController', function(APIService, $scope){
 	$scope.user = {};
     $scope.roles = [];
 

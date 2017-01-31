@@ -1,4 +1,4 @@
-package com.sample.response;
+package mtg.response;
 
 public class StringResponse {
     private String response;

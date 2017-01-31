@@ -1,6 +1,6 @@
 
 // create the controller and inject Angular's $scope
-savageRiftsApp.controller('mainController', function($scope, $location, $window, $log, JwtService) {
+mtgApp.controller('mainController', function($scope, $location, $window, $log, JwtService) {
     // create a message to display in our view
     $scope.message = 'main';
 

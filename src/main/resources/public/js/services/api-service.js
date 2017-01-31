@@ -1,5 +1,5 @@
 
-savageRiftsApp.factory('APIService', function($window, $location, $http, $log) {
+mtgApp.factory('APIService', function($window, $location, $http, $log) {
     return {
         getHeaders: function() {
             return { headers: {'x-access-token': $window.localStorage['jwtToken']} };
