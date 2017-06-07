@@ -1,5 +1,5 @@
 
-sampleApp.directive('pfCollapseSection', function() {
+dominionApp.directive('pfCollapseSection', function() {
 	return {
 		template:
 			'<div class="panel panel-default" id="panel2"> \
@@ -22,7 +22,7 @@ sampleApp.directive('pfCollapseSection', function() {
 	}
 });
 
-sampleApp.directive('pfCollapseSectionHeader', function() {
+dominionApp.directive('pfCollapseSectionHeader', function() {
 	return {
 		template:
 			'<div class="panel-heading"> \
@@ -43,7 +43,7 @@ sampleApp.directive('pfCollapseSectionHeader', function() {
 	}
 });
 
-sampleApp.directive('pfCollapseSectionBody', function() {
+dominionApp.directive('pfCollapseSectionBody', function() {
 	return {
 		template:
 			'<div id="{{id}}" ng-class="{in: !initialCollapsed, \'panel-collapse\': true, collapse: true}" > \

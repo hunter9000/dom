@@ -1,5 +1,5 @@
 
-sampleApp.directive('list', function($compile, $interpolate, $log) {
+dominionApp.directive('list', function($compile, $interpolate, $log) {
     return {
         restrict: 'E',
         scope: {
@@ -20,7 +20,7 @@ sampleApp.directive('list', function($compile, $interpolate, $log) {
         }
     }
 });
-sampleApp.directive('element', function($compile, $interpolate, TemplateService) {
+dominionApp.directive('element', function($compile, $interpolate, TemplateService) {
     return {
         restrict: 'E',
         scope: {

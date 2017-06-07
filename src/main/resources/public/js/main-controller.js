@@ -1,6 +1,6 @@
 
 // create the controller and inject Angular's $scope
-sampleApp.controller('mainController', function($scope, $location, $window, $log, JwtService) {
+dominionApp.controller('mainController', function($scope, $location, $window, $log, JwtService) {
     // create a message to display in our view
     $scope.message = 'main';
 
@@ -31,7 +31,7 @@ sampleApp.controller('mainController', function($scope, $location, $window, $log
             $log.debug('redirecting');
         }
         else {
-            $location.path('/sheetselect');
+            $location.path('/home');
         }
     };
     init();

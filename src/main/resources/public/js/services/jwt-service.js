@@ -1,5 +1,5 @@
 
-sampleApp.factory('JwtService', function($window, $location, $log) {
+dominionApp.factory('JwtService', function($window, $location, $log) {
     return {
         getUserName: function() {
             var subject = this.parseJwt();

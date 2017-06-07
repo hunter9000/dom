@@ -1,5 +1,5 @@
 
-sampleApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
+dominionApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
 
     $scope.user = {};
 

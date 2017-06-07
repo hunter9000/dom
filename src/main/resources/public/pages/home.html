@@ -1,3 +1,40 @@
-	hi
-	
-	<p>{{ message }}</p>
+home<br/>
+<br/>
+start game:<br/>
+    select players<br/>
+    select card loadout<br/>
+<br/>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <panel header="In Progress Games">
+                in progress games
+
+                <button>Rejoin</button>
+            </panel>
+        </div>
+
+        <div class="col-md-6">
+            <panel header="Select Players">
+                select players
+            </panel>
+
+            <panel header="Select Expansions">
+                <dl class="dl-horizontal" ng-repeat="expansion in expansions">
+                    <dt>
+                        <input type="checkbox" name="expansionSelection" checklist-model="selectedExpansions" checklist-value="expansion" >
+                    </dt>
+                    <dd class="text-left">
+                        {{expansion}}
+                    </dd>
+                </dl>
+            </panel>
+
+            <button ng-click="selectCards()">Select Cards</button>
+        </div>
+    </div>
+</div>
+
+{{cards}}
+

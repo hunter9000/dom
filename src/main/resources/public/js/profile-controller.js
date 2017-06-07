@@ -1,5 +1,5 @@
 
-sampleApp.controller('profileController', function(APIService, $scope){
+dominionApp.controller('profileController', function(APIService, $scope){
 	$scope.user = {};
     $scope.roles = [];
 

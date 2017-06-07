@@ -1,5 +1,5 @@
 
-sampleApp.controller('usersController', function(APIService, $scope, $location) {
+dominionApp.controller('usersController', function(APIService, $scope, $location) {
 
     $scope.users = [];
 

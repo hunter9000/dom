@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>hdavis</groupId>
-  <artifactId>sample</artifactId>
+  <artifactId>dominion</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
 
@@ -14,7 +14,7 @@
     <version>1.5.3.RELEASE</version>
   </parent>
 
-  <name></name>
+  <name>Dominion</name>
   <url></url>
 
     <properties>

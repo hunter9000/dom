@@ -1,5 +1,5 @@
 
-sampleApp.controller('newUserController', function(APIService, $scope, $location) {
+dominionApp.controller('newUserController', function(APIService, $scope, $location) {
     $scope.user = {
         roles: []
     };       // user object to build and pass to server

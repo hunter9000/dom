@@ -1,5 +1,5 @@
 
-sampleApp.factory('APIService', function($window, $location, $http, $log) {
+dominionApp.factory('APIService', function($window, $location, $http, $log) {
 
     var getHeaders = function() {
         return { headers: {'x-access-token': $window.localStorage['jwtToken']} };
@@ -23,9 +23,13 @@ sampleApp.factory('APIService', function($window, $location, $http, $log) {
         };
     };
 
-    var get = function(uri, successCallback) {
+    var get = function(uri, params, successCallback) {
         $log.debug('GET: ' + uri);
-        $http.get(uri, getHeaders())
+        var config = getHeaders();
+        if (params) {
+            config['params'] = params;
+        }
+        $http.get(uri, config)
         .then(getSuccessCallbackWrapper(successCallback, 'GET', uri), getStandardFailureCallback());
     };
     var post = function(uri, data, successCallback, failureCallback) {
@@ -61,10 +65,10 @@ sampleApp.factory('APIService', function($window, $location, $http, $log) {
             post('/api/authenticate/', data, successCallback);
         },
         getUser: function(userId, successCallback) {
-            get('/api/users/'+userId+'/', successCallback);
+            get('/api/users/'+userId+'/', null, successCallback);
         },
         getUsers: function(successCallback) {
-            get('/api/users/', successCallback);
+            get('/api/users/', null, successCallback);
         },
         updateUser: function(userId, data, successCallback) {
             put('/api/users/'+userId+'/', data, successCallback);
@@ -73,15 +77,21 @@ sampleApp.factory('APIService', function($window, $location, $http, $log) {
             post('/api/user/', data, successCallback);
         },
         getProfile: function(successCallback) {
-            get('/api/profile/', successCallback);
+            get('/api/profile/', null, successCallback);
         },
         editProfile: function(data, successCallback) {
             put('/api/profile/', data, successCallback);
         },
         getAllRoles: function(successCallback) {
-            get('/api/roles/', successCallback);
+            get('/api/roles/', null, successCallback);
         },
 
-		
+		getExpansions: function(successCallback) {
+		    get('/api/expansions/', null, successCallback);
+		},
+        /** expansionsParams is the params object that contains 'expansions': [] */
+		getCardsFromExpansions: function(expansionsParams, successCallback) {
+		    get('/api/cards/', expansionsParams, successCallback);
+		},
     };
 });

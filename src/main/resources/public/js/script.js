@@ -1,8 +1,8 @@
 // create the module and name it scotchApp
-var sampleApp = angular.module('sampleApp', ['ngRoute', 'ui.bootstrap', 'checklist-model', 'ngMaterial']);
+var dominionApp = angular.module('dominionApp', ['ngRoute', 'ui.bootstrap', 'checklist-model', 'ngMaterial']);
 
 // configure our routes
-sampleApp.config(function($routeProvider) {
+dominionApp.config(function($routeProvider) {
     $routeProvider
         // route for the home page
         // main-controller.js
@@ -37,6 +37,11 @@ sampleApp.config(function($routeProvider) {
         .when('/profile', {
             templateUrl : 'pages/profile.html',
             controller  : 'profileController'
+        })
+
+        .when('/home', {
+            templateUrl : 'pages/home.html',
+            controller  : 'homeController'
         })
 
         // generic error page

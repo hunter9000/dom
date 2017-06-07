@@ -1,6 +1,6 @@
 
 
-savageRiftsApp.directive('panel', function() {
+dominionApp.directive('panel', function() {
     return {
         templateUrl: 'pages/templates/panel-directive-template.html',
         restrict: 'E',
