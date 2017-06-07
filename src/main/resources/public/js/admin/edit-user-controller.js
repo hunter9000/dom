@@ -1,5 +1,5 @@
 
-savageRiftsApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
+sampleApp.controller('editUserController', function(APIService, $scope, $location, $routeParams) {
 
     $scope.user = {};
 

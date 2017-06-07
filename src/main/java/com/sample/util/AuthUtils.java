@@ -4,7 +4,6 @@ import com.sample.model.user.Role;
 import com.sample.model.user.RoleType;
 import com.sample.model.user.User;
 import com.sample.security.JwtSubject;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -39,7 +38,7 @@ public class AuthUtils {
         return ((User)request.getAttribute(LOGGED_IN_USER));
     }
 
-    public static Sheet getSheet(HttpServletRequest request) {
-        return ((Sheet)request.getAttribute(SHEET));
-    }
+//    public static Sheet getSheet(HttpServletRequest request) {
+//        return ((Sheet)request.getAttribute(SHEET));
+//    }
 }

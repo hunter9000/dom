@@ -1,5 +1,5 @@
 
-savageRiftsApp.factory('JwtService', function($window, $location, $log) {
+sampleApp.factory('JwtService', function($window, $location, $log) {
     return {
         getUserName: function() {
             var subject = this.parseJwt();

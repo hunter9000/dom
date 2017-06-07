@@ -1,5 +1,5 @@
 
-savageRiftsApp.directive('pfCollapseSection', function() {
+sampleApp.directive('pfCollapseSection', function() {
 	return {
 		template:
 			'<div class="panel panel-default" id="panel2"> \
@@ -22,7 +22,7 @@ savageRiftsApp.directive('pfCollapseSection', function() {
 	}
 });
 
-savageRiftsApp.directive('pfCollapseSectionHeader', function() {
+sampleApp.directive('pfCollapseSectionHeader', function() {
 	return {
 		template:
 			'<div class="panel-heading"> \
@@ -43,7 +43,7 @@ savageRiftsApp.directive('pfCollapseSectionHeader', function() {
 	}
 });
 
-savageRiftsApp.directive('pfCollapseSectionBody', function() {
+sampleApp.directive('pfCollapseSectionBody', function() {
 	return {
 		template:
 			'<div id="{{id}}" ng-class="{in: !initialCollapsed, \'panel-collapse\': true, collapse: true}" > \

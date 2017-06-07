@@ -1,5 +1,5 @@
 
-savageRiftsApp.directive('list', function($compile, $interpolate, $log) {
+sampleApp.directive('list', function($compile, $interpolate, $log) {
     return {
         restrict: 'E',
         scope: {
@@ -20,7 +20,7 @@ savageRiftsApp.directive('list', function($compile, $interpolate, $log) {
         }
     }
 });
-savageRiftsApp.directive('element', function($compile, $interpolate, TemplateService) {
+sampleApp.directive('element', function($compile, $interpolate, TemplateService) {
     return {
         restrict: 'E',
         scope: {
