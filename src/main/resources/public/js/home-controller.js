@@ -1,20 +1,31 @@
 
 dominionApp.controller('homeController', function(APIService, $scope){
-    $scope.expansions = [];
+    $scope.expansionsMap = [];
     $scope.selectedExpansions = [];
 
-    $scope.cards = [];
+    $scope.cardsMap = null;        // []
+
+    $scope.players = [];
+    $scope.selectedPlayers = [];
 
     APIService.getExpansions(function(response) {
-        $scope.expansions = response.data;
+        $scope.expansionsMap = response.data;
     });
+
+    APIService.getAllPlayers(function(response) {
+        $scope.players = response.data;
+    });
+
+    $scope.showPlayerSelection = function() {
+
+    };
 
     $scope.selectCards = function() {
         console.log($scope.selectedExpansions);
 
         APIService.getCardsFromExpansions({'expansions': $scope.selectedExpansions}, function(response) {
-            $scope.cards = response.data;
+            $scope.cardsMap = response.data;
         });
-    }
+    };
 
 });

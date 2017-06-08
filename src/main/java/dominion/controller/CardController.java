@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,14 +20,14 @@ public class CardController {
 //    private CardRepository cardRepository;
 
     @RequestMapping(value="/api/expansions/", method = RequestMethod.GET)
-    public List<ExpansionType> getExpansions() {
-        return Arrays.asList(ExpansionType.values());
+    public Map<ExpansionType, ExpansionType> getExpansions() {
+        return Arrays.stream(ExpansionType.values()).collect(Collectors.toMap(Function.identity(), Function.identity()));
     }
 
     /** Gets the kingdom cards that are included in one of the expansion sets requested */
     @RequestMapping(value="/api/cards/", method= RequestMethod.GET)
-    public List<CardType> getAllCardTypes(@RequestParam("expansions") List<ExpansionType> expansionTypes) {
-        return Arrays.stream(CardType.values()).filter((CardType type) -> expansionTypes.contains(type.getExpansionType())).collect(Collectors.toList());
+    public Map<CardType, CardType> getAllCardTypes(@RequestParam("expansions") List<ExpansionType> expansionTypes) {
+        return Arrays.stream(CardType.values()).filter((CardType type) -> expansionTypes.contains(type.getExpansionType())).collect(Collectors.toMap(Function.identity(), Function.identity()));
     }
 
 }

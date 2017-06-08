@@ -16,25 +16,44 @@ start game:<br/>
         </div>
 
         <div class="col-md-6">
+
+            Make this whole thing an overlay :)
+
             <panel header="Select Players">
                 select players
+                <br/>
+                {{players}}
             </panel>
 
-            <panel header="Select Expansions">
-                <dl class="dl-horizontal" ng-repeat="expansion in expansions">
-                    <dt>
-                        <input type="checkbox" name="expansionSelection" checklist-model="selectedExpansions" checklist-value="expansion" >
-                    </dt>
-                    <dd class="text-left">
-                        {{expansion}}
-                    </dd>
-                </dl>
-            </panel>
+            <div ng-hide="cardsMap">
+                <panel header="Select Expansions">
+                    <dl class="dl-horizontal" ng-repeat="(expansionType, expansion) in expansionsMap">
+                        <dt>
+                            <input type="checkbox" name="expansionSelection" checklist-model="selectedExpansions" checklist-value="expansionType" >
+                        </dt>
+                        <dd class="text-left">
+                            {{expansion.displayName}}
+                        </dd>
+                    </dl>
+                </panel>
+            </div>
+            <div ng-show="cardsMap">
+                <panel header="Select Kingdom Cards">
+                    <dl class="dl-horizontal" ng-repeat="(cardType, card) in cardsMap">
+                        <dt>
+                            <input type="checkbox" name="cardSelection" checklist-model="selectedCards" checklist-value="cardType" >
+                        </dt>
+                        <dd class="text-left">
+                            {{card.displayName}}
+                        </dd>
+                    </dl>
+                </panel>
+            </div>
 
             <button ng-click="selectCards()">Select Cards</button>
         </div>
     </div>
 </div>
 
-{{cards}}
+
 

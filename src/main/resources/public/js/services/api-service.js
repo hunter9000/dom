@@ -93,5 +93,9 @@ dominionApp.factory('APIService', function($window, $location, $http, $log) {
 		getCardsFromExpansions: function(expansionsParams, successCallback) {
 		    get('/api/cards/', expansionsParams, successCallback);
 		},
+
+		getAllPlayers: function(successCallback) {
+		    get('/api/players/', null, successCallback);
+		},
     };
 });
