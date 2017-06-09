@@ -97,5 +97,12 @@ dominionApp.factory('APIService', function($window, $location, $http, $log) {
 		getAllPlayers: function(successCallback) {
 		    get('/api/players/', null, successCallback);
 		},
+
+        getGames: function(successCallback) {
+            get('/api/game/', null, successCallback);
+        },
+		createGame: function(gameInfo, successCallback) {
+		    post('/api/game/', gameInfo, successCallback);
+		},
     };
 });

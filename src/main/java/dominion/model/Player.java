@@ -29,6 +29,9 @@ public class Player {
     @JoinColumn(name = "game", nullable = false)
     private Game game;
 
+    @Column(name = "game_order", updatable = false, nullable = false)
+    private Integer gameOrder;
+
     @ManyToMany()
     @JoinTable(name = "player_deck",
             joinColumns = {@JoinColumn(name = "playerId", nullable = false, updatable = false) },		// column that points to this table

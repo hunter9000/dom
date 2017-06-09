@@ -1,59 +1,66 @@
-home<br/>
-<br/>
-start game:<br/>
-    select players<br/>
-    select card loadout<br/>
-<br/>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <panel header="In Progress Games">
-                in progress games
-
+                {{games}}
                 <button>Rejoin</button>
             </panel>
         </div>
 
         <div class="col-md-6">
-
-            Make this whole thing an overlay :)
-
-            <panel header="Select Players">
-                select players
-                <br/>
-                {{players}}
-            </panel>
-
-            <div ng-hide="cardsMap">
-                <panel header="Select Expansions">
-                    <dl class="dl-horizontal" ng-repeat="(expansionType, expansion) in expansionsMap">
-                        <dt>
-                            <input type="checkbox" name="expansionSelection" checklist-model="selectedExpansions" checklist-value="expansionType" >
-                        </dt>
-                        <dd class="text-left">
-                            {{expansion.displayName}}
-                        </dd>
-                    </dl>
-                </panel>
-            </div>
-            <div ng-show="cardsMap">
-                <panel header="Select Kingdom Cards">
-                    <dl class="dl-horizontal" ng-repeat="(cardType, card) in cardsMap">
-                        <dt>
-                            <input type="checkbox" name="cardSelection" checklist-model="selectedCards" checklist-value="cardType" >
-                        </dt>
-                        <dd class="text-left">
-                            {{card.displayName}}
-                        </dd>
-                    </dl>
-                </panel>
-            </div>
-
-            <button ng-click="selectCards()">Select Cards</button>
+            <button ng-click="startNewGame()">New Game</button>
         </div>
     </div>
 </div>
 
 
+<!-- Modal window to create new game -->
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalHeader()}}</h3>
+    </div>
 
+    <div class="modal-body">
+
+        <div ng-show="showPlayers()">
+            <dl class="dl-horizontal" ng-repeat="player in players">
+                <dt>
+                    <input type="checkbox" name="playerSelection" checklist-model="gameInfo.selectedPlayers" checklist-value="player.userId" >
+                </dt>
+                <dd class="text-left">
+                    {{player.userName}}
+                </dd>
+            </dl>
+        </div>
+        <div ng-show="showExpansions()">
+            <!--<panel header="Select Expansions">-->
+                <dl class="dl-horizontal" ng-repeat="(expansionType, expansion) in expansionsMap">
+                    <dt>
+                        <input type="checkbox" name="expansionSelection" checklist-model="gameInfo.selectedExpansions" checklist-value="expansionType" >
+                    </dt>
+                    <dd class="text-left">
+                        {{expansion.displayName}}
+                    </dd>
+                </dl>
+            <!--</panel>-->
+        </div>
+        <div ng-show="showCards()">
+            <!--<panel header="Select Kingdom Cards">-->
+                <dl class="dl-horizontal" ng-repeat="(cardType, card) in cardsMap">
+                    <dt>
+                        <input type="checkbox" name="cardSelection" checklist-model="gameInfo.selectedCards" checklist-value="cardType" >
+                    </dt>
+                    <dd class="text-left">
+                        {{card.displayName}}
+                    </dd>
+                </dl>
+            <!--</panel>-->
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="next()">{{nextButtonLabel()}}</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
