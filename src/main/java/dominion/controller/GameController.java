@@ -1,15 +1,12 @@
 package dominion.controller;
 
+import dominion.manager.GameManager;
 import dominion.model.Player;
 import dominion.model.game.Game;
 import dominion.repository.GameRepository;
-import dominion.repository.UserRepository;
 import dominion.request.CreateGameRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GameController {
@@ -18,22 +15,30 @@ public class GameController {
     private GameRepository gameRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private GameManager gameManager;
 
     @RequestMapping(value="/api/game/", method = RequestMethod.GET)
     public Iterable<Game> getGames() {
         return gameRepository.findAll();
     }
 
+    @RequestMapping(value="/api/game/{gameId}/", method = RequestMethod.GET)
+    public Game getGame(@PathVariable Long gameId) {
+        return gameRepository.findOne(gameId);
+    }
+
+    @RequestMapping(value="/api/game/{gameId}/currentplayer", method = RequestMethod.GET)
+    public Player getCurrentPlayer(@PathVariable Long gameId) {
+        return gameRepository.findOne(gameId).getCurrPlayer();
+    }
+
     @RequestMapping(value="/api/game/", method = RequestMethod.POST)
     public Game createGame(@RequestBody CreateGameRequest createGameRequest) {
-        Game game = new Game();
-
-        for (Long userId : createGameRequest.selectedPlayers) {
-            Player player = new Player();
-            player.setUser(userRepository.findOne(userId));
-            player.setGame(game);
+        if (!createGameRequest.validate()) {
+//            throw new BadRequestException();
         }
+
+        Game game = gameManager.createGame(createGameRequest);
 
         gameRepository.save(game);
         return game;

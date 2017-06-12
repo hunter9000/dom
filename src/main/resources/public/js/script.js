@@ -44,6 +44,11 @@ dominionApp.config(function($routeProvider) {
             controller  : 'homeController'
         })
 
+        .when('/game/:gameId', {
+            templateUrl : 'pages/game.html',
+            controller  : 'gameController'
+        })
+
         // generic error page
         .when('/error', {
             templateUrl: 'pages/error.html',

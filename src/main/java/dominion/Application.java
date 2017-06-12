@@ -2,6 +2,7 @@ package dominion;
 
 import dominion.interceptor.JWTInterceptor;
 import dominion.interceptor.RolePermissionInterceptor;
+import dominion.manager.GameManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -42,6 +43,11 @@ public class Application extends WebMvcConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         PasswordEncoder encoder = new BCryptPasswordEncoder(10/*, random*/);
         return encoder;
+    }
+
+    @Bean
+    public GameManager gameManager() {
+        return new GameManager();
     }
 
     /** Adds JWTInterceptor to the list of interceptors. The handler methods of JWTInterceptor will be called for any

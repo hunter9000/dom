@@ -3,13 +3,17 @@
     <div class="row">
         <div class="col-md-6">
             <panel header="In Progress Games">
-                {{games}}
-                <button>Rejoin</button>
+
+                <div ng-repeat="game in games">
+                    {{game}}
+
+                    <button ng-click="startGame(game)">Rejoin</button>
+                </div>
             </panel>
         </div>
 
         <div class="col-md-6">
-            <button ng-click="startNewGame()">New Game</button>
+            <button ng-click="createNewGame()">New Game</button>
         </div>
     </div>
 </div>

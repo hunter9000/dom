@@ -17,8 +17,12 @@ public class Game {
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Player> players;
 
+    @OneToOne
     @JoinColumn(name = "curr_player", nullable = false)
     private Player currPlayer;
+
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CardStack> cardStacks;
 
 
     public Long getId() {
@@ -40,5 +44,12 @@ public class Game {
     }
     public void setCurrPlayer(Player currPlayer) {
         this.currPlayer = currPlayer;
+    }
+
+    public List<CardStack> getCardStacks() {
+        return cardStacks;
+    }
+    public void setCardStacks(List<CardStack> cardStacks) {
+        this.cardStacks = cardStacks;
     }
 }
